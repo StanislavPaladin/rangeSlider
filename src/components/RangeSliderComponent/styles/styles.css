@@ -1,11 +1,12 @@
 /* rail component (slider rail)*/
 .railHotspot {
-	background-color: white;
-	width: 100%;
-	height: 24px;
+	background-color: rgba(128, 128, 128, 0.3);
+	width: 103%;
+	height: 3px;
 	position: absolute;
 	cursor: pointer;
-	top: -2px;
+	top: -3px;
+	border-radius: 3px;
 }
 
 .rail {
@@ -36,6 +37,7 @@
 /* track component */
 .track {
 	background-color: rgba(78, 74, 74, 0.5);
+	
 	height: 4px;
 	margin-left: 10px;
 	position: absolute;
@@ -45,6 +47,7 @@
 }
 
 .trackHotspot {
+	
 	height: 12px;
 	top: -6px;
 	position: absolute;
@@ -77,14 +80,33 @@
 }
 
 .rangeSlider-wrapper {
+	padding-top: 8px;
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+	align-items: flex-start;
+	color: white;
 	margin-left: 10px;
-	gap:5px;
+	gap: 5px;
 }
+
+.rangeSlider-wrapper-title {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.rangeSlider-wrapper-subtitle {
+	font-weight: normal;
+}
+
+.rangeSlider-input-wrapper {
+	display: flex;
+	gap:4px;	
+}
+
 
 .rangeSlider-main {
 	padding: 20px;
+	margin-bottom: 20px;
 }
 
 .rangeSlider-close {
@@ -98,10 +120,16 @@
 }
 
 .rangeSlider-input {
-	width: 110px;
-	height: 30px;
+	width: 100px;
+	height: 20px;
 	border-radius: 6px;
 	background-color: transparent;
 	color: white;
 	border: 1px solid gray;
+	padding: 5px;
 }
+
+.rangeSlider-input:focus {
+	outline: none;
+}
+

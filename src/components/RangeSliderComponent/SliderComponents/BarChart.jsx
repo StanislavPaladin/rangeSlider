@@ -25,6 +25,9 @@ class BarChart extends React.Component {
               : "gray"
           ),
           hoverBackgroundColor: "grey",
+          borderRadius : {
+            topLeft: 50
+          },
           data: barDataValues
         }
       ]
@@ -32,27 +35,31 @@ class BarChart extends React.Component {
 
     const options = {
       responsive: true,
-      
+      cornerRadius: 44,
       legend: {
         display: false
       },
       scales: {
         xAxes: [
           {
-            display: false
+            // here is changing bar styles
+            display: false,
+            barThickness : 4,
+            barLength: 25,
+            barLength: 150
           }
         ],
         yAxes: [
           {
             display: false,
             ticks: {
-              min: 0
+              min: 3
             }
           }
         ]
       }
     };
-    return <Bar type="bar" width={320} height={30} data={barData} options={options} />;
+    return <Bar type="bar" width={320} height={40} data={barData} options={options} />;
   }
 }
 

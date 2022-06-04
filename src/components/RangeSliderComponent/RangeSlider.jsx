@@ -3,14 +3,13 @@ import React from "react";
 import { Slider, Rail, Handles, Tracks } from "react-compound-slider";
 import { SliderHandle } from "./SliderComponents/SliderHandle.jsx";
 import { SliderTrack } from "./SliderComponents/SliderTrack.jsx";
+import {SliderRail} from "./SliderComponents/SliderRail.jsx"
 import BarChart from "./SliderComponents/BarChart";
 
 class RangeSlider extends React.Component {
 	constructor(props) {
 		super(props);
-
-		const sortedData = props.data.slice().sort((a, b) => a - b);
-		const range = [sortedData[0], sortedData[sortedData.length - 1]];
+    const range = props.range;
 
 		this.state = {
 			domain: range,
@@ -26,7 +25,9 @@ class RangeSlider extends React.Component {
 		return (
 			<div className="rangeSlider">
 				<div className="rangeSlider-wrapper">
-							<input
+          <span className="rangeSlider-wrapper-title">Transaction count <span className="rangeSlider-wrapper-subtitle">(from-to)</span></span>
+						<div className="rangeSlider-input-wrapper">
+            <input
               className="rangeSlider-input"
 								label="starting_price"
 								value={inputValues[0]}
@@ -60,6 +61,8 @@ class RangeSlider extends React.Component {
 									}
 								}}
 							/>
+            </div>
+            	
 						</div>
 				<div className="rangeSlider-main">
 					<BarChart
@@ -81,6 +84,9 @@ class RangeSlider extends React.Component {
 						onChange={(values) => this.setState({ values })}
 						values={values}
 					>
+            <Rail>
+                {({ getRailProps }) => <SliderRail getRailProps={getRailProps} />}
+              </Rail>
 						<Handles>
 							{({ handles, getHandleProps }) => (
 								<div className="slider-handles">
