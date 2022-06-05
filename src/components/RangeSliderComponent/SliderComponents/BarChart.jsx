@@ -18,7 +18,6 @@ class BarChart extends React.Component {
 		for (let i = 0; i < domain[1]; i++) {
 			barDataValues.push(counts[i] || 0);
 		}
-
 		const barData = {
 			labels: barDataValues.map((val, i) => i),
 			datasets: [
@@ -30,10 +29,10 @@ class BarChart extends React.Component {
 					borderRadius: 100,
 					borderSkipped: "bottom",
 					data: barDataValues,
-					barPercentage: 0.5,
-					barThickness: 8,
-					maxBarThickness: 10,
-					minBarLength: 2,
+					barPercentage: 1,
+					barThickness: 6,
+					maxBarThickness: 8,
+					minBarLength: 0,
 				},
 			],
 		};
@@ -53,7 +52,7 @@ class BarChart extends React.Component {
 				y: {
 					display: false,
 					ticks: {
-						min: 0,
+						min: 1,
 					},
 				},
 			},
@@ -61,7 +60,7 @@ class BarChart extends React.Component {
 		return (
 			<Bar
 				type="bar"
-				width={320}
+				width={310}
 				height={42}
 				data={barData}
 				options={options}
