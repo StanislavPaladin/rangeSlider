@@ -2,10 +2,10 @@
 .railHotspot {
 	background-color: rgba(128, 128, 128, 0.3);
 	width: 107%;
-	height: 3px;
+	height: 2px;
 	position: absolute;
 	cursor: pointer;
-	top: -3px;
+	top: -1px;
 	left: -10px;
 	/* left: 20px; */
 	border-radius: 3px;
@@ -22,7 +22,7 @@
 .root {
 	background-color: gold;
 	border: 1px solid red;
-	margin-top: -5px;
+	margin-top: -3px;
 	width: 6px;
 	height: 6px;
 	border: 0;
@@ -35,10 +35,10 @@
 }
 
 #SliderDotLeft {
-	margin-left: -13px;
+	margin-left: -11px;
 }
 #SliderDotRigth {
-	margin-left: 8px;
+	margin-left: 6px;
 }
 
 /* track component */
