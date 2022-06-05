@@ -3,13 +3,13 @@ import React from "react";
 import { Slider, Rail, Handles, Tracks } from "react-compound-slider";
 import { SliderHandle } from "./SliderComponents/SliderHandle.jsx";
 import { SliderTrack } from "./SliderComponents/SliderTrack.jsx";
-import {SliderRail} from "./SliderComponents/SliderRail.jsx"
+import { SliderRail } from "./SliderComponents/SliderRail.jsx";
 import BarChart from "./SliderComponents/BarChart";
 
 class RangeSlider extends React.Component {
 	constructor(props) {
 		super(props);
-    const range = props.range;
+		const range = props.range;
 
 		this.state = {
 			domain: range,
@@ -25,45 +25,49 @@ class RangeSlider extends React.Component {
 		return (
 			<div className="rangeSlider">
 				<div className="rangeSlider-wrapper">
-          <span className="rangeSlider-wrapper-title">Transaction count <span className="rangeSlider-wrapper-subtitle">(from-to)</span></span>
-						<div className="rangeSlider-input-wrapper">
-            <input
-              className="rangeSlider-input"
-								label="starting_price"
-								value={inputValues[0]}
-								onChange={(evt) => {
-									const value = evt.target.value;
-									const newState = [value, inputValues[1]];
-									this.setState({
-										inputValues: newState,
-									});
-									if (value && value >= domain[0]) {
-										this.setState({ values: newState });
-									}
-								}}
-							/>
-							<input
-              className="rangeSlider-input"
-								label="max_price"
-								value={inputValues[1]}
-								onChange={(evt) => {
-									const value = evt.target.value;
-									const newState = [inputValues[0], value];
-									this.setState({
-										inputValues: newState,
-									});
-									if (
-										value &&
-										value <= domain[1] &&
-										value >= values[0]
-									) {
-										this.setState({ values: newState });
-									}
-								}}
-							/>
-            </div>
-            	
-						</div>
+					<span className="rangeSlider-wrapper-title">
+						Transaction count{" "}
+						<span className="rangeSlider-wrapper-subtitle">
+							(from-to)
+						</span>
+					</span>
+					<div className="rangeSlider-input-wrapper">
+						<input
+							className="rangeSlider-input"
+							label="starting_price"
+							value={inputValues[0]}
+							onChange={(evt) => {
+								const value = evt.target.value;
+								const newState = [value, inputValues[1]];
+								this.setState({
+									inputValues: newState,
+								});
+								if (value && value >= domain[0]) {
+									this.setState({ values: newState });
+								}
+							}}
+						/>
+						<input
+							className="rangeSlider-input"
+							label="max_price"
+							value={inputValues[1]}
+							onChange={(evt) => {
+								const value = evt.target.value;
+								const newState = [inputValues[0], value];
+								this.setState({
+									inputValues: newState,
+								});
+								if (
+									value &&
+									value <= domain[1] &&
+									value >= values[0]
+								) {
+									this.setState({ values: newState });
+								}
+							}}
+						/>
+					</div>
+				</div>
 				<div className="rangeSlider-main">
 					<BarChart
 						data={this.props.data}
@@ -84,9 +88,11 @@ class RangeSlider extends React.Component {
 						onChange={(values) => this.setState({ values })}
 						values={values}
 					>
-            <Rail>
-                {({ getRailProps }) => <SliderRail getRailProps={getRailProps} />}
-              </Rail>
+						<Rail>
+							{({ getRailProps }) => (
+								<SliderRail getRailProps={getRailProps} />
+							)}
+						</Rail>
 						<Handles>
 							{({ handles, getHandleProps }) => (
 								<div className="slider-handles">
@@ -116,7 +122,7 @@ class RangeSlider extends React.Component {
 							)}
 						</Tracks>
 					</Slider>
-          <button className="rangeSlider-close">x</button>
+					<button className="rangeSlider-close">x</button>
 				</div>
 			</div>
 		);

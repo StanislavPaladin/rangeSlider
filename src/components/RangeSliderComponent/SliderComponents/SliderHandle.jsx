@@ -7,6 +7,8 @@ export function SliderHandle({
 	handle: { id, value, percent },
 	getHandleProps,
 }) {
+
+	
 	return (
 		<div
 			role="slider"
